@@ -13,7 +13,7 @@ function App() {
           <header>Header</header>
           <ul>
             <li>
-              <img src={frog} alt="photo"></img>
+              <img src={frog} alt="smth"></img>
               First task
             </li>
             <li>Second task</li>
@@ -26,7 +26,7 @@ function App() {
           <header>Headers</header>
           <ul>
             <li>
-              <img src={frog} alt="photo"></img>
+              <img src={frog} alt="smth"></img>
               First task
             </li>
             <li>Second task</li>
@@ -38,7 +38,7 @@ function App() {
           <header>Header</header>
           <ul>
             <li>
-              <img src={frog} alt="photo"></img>
+              <img src={frog} alt="smth"></img>
               First task
             </li>
             <li>Second task</li>
@@ -50,7 +50,7 @@ function App() {
           <header>Header</header>
           <ul>
             <li>
-              <img src={frog} alt="photo"></img>
+              <img src={frog} alt="smth"></img>
               First task
             </li>
             <li>Second task</li>
@@ -62,7 +62,7 @@ function App() {
           <header>Header</header>
           <ul>
             <li>
-              <img src={frog} alt="photo"></img>
+              <img src={frog} alt="smth"></img>
               First task
             </li>
             <li>Second task</li>
