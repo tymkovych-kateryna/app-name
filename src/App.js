@@ -23,7 +23,7 @@ function App() {
         </div>
 
         <div className='columns'>
-          <header>Headers</header>
+          <header>Header</header>
           <ul>
             <li>
               <img src={frog} alt="smth"></img>
