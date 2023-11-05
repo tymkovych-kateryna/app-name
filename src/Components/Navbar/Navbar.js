@@ -1,8 +1,4 @@
-// import React from 'react';
 import './Navbar.scss';
-import SignIn from '../SignIn.js';
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function Navbar(){

@@ -1,4 +1,3 @@
-import react from "react";
 import './SignIn.scss';
 import Navbar from "./Navbar/Navbar";
 function SignIn(){

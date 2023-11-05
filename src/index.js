@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import './App.scss';
 import SignIn from './Components/SignIn';
-// import Navbar from './Components/Navbar/Navbar'
 import './Components/SignIn.scss';
 import './Components/Navbar/Navbar.scss';
 import {
