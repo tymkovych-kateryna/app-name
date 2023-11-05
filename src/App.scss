@@ -21,11 +21,13 @@ body {
 .trello-container {
   height: 100vh;
   display: grid;
-  grid-template-rows: 40px 50px 1fr;
+  // flex-direction: row;
+  //!робить різні дві полоски перші 
+  grid-template-rows: 50px 1fr;
   background-color: $board-bg-color;
   
   .app-navbar {
-    padding-left: 10px;
+    // padding-left: 10px;
     display: flex;
     align-items: center;
     background-color: $app-navbar-bg-color;
@@ -38,6 +40,7 @@ body {
     align-items: center;
     background-color: $board-navbar-bg-color;
     font-size: 1.1rem;
+    // height: 50px;
   }
 
   .board-columns {
@@ -60,7 +63,7 @@ body {
     .columns {
       flex: 0 0 auto;
       width: 300px;
-      height: calc(100% - 20px);
+      // height: calc(100% - 20px);
       margin-top: 10px;
 
       * {

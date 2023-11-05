@@ -1,12 +1,13 @@
 import React from 'react';
 import frog from './images/frog.png';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
     <div className="trello-container">
-
-      <nav className='app-navbar'>Navigation Bar</nav>
-      <nav className='board-navbar'>Board Bar</nav>
+        <Navbar/>
+      {/* <nav className='app-navbar'>Navigation Bar</nav>
+      <nav className='board-navbar'>Board Bar</nav> */}
 
       <div className='board-columns'>
         <div className='columns'>
@@ -23,7 +24,7 @@ function App() {
         </div>
 
         <div className='columns'>
-          <header>Headers</header>
+          <header>Header</header>
           <ul>
             <li>
               <img src={frog} alt="smth"></img>
