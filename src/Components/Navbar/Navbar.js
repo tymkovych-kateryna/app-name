@@ -10,7 +10,7 @@ function Navbar(){
       
        <section className="top-nav">
           <div>
-            <a href='/'>
+            <a href='/#'>
 
               Logo
             </a>
