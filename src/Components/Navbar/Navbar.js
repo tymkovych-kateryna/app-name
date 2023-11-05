@@ -1,5 +1,5 @@
 import './Navbar.scss';
-
+import SignIn from '../SignIn';
 
 function Navbar(){
   const redirectToAnotherPage = () => {

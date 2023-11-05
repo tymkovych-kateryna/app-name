@@ -12,7 +12,7 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/#",
+    path: "/",
     element: <App />
   },
   {
@@ -22,9 +22,10 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-{/* <App /> */}
 root.render(
   <React.StrictMode>
+    {/* <App /> */}
+    
     <RouterProvider router={router} />
   </React.StrictMode>
 );
