@@ -13,7 +13,7 @@ function Navbar() {
   return (
     <section className="top-nav">
       <div>
-        <a href="/#">Logo</a>
+        <a href="/#">PM</a>
       </div>
       <input id="menu-toggle" type="checkbox" />
       <label className="menu-button-container" htmlFor="menu-toggle">
