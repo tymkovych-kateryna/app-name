@@ -1,4 +1,5 @@
 import "./Navbar.scss";
+import notification from '../../images/notification.png';
 import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
 
@@ -10,6 +11,7 @@ function Navbar() {
   const SignUp = () => {
     window.location.href = "/signup";
   };
+
   return (
     <section className="top-nav">
       <div>
@@ -22,6 +24,16 @@ function Navbar() {
       <ul className="menu">
         {/* <li>One</li>
       <li>Two</li> */}
+        <li>
+          {/* // TODO: добавити іконку для чату
+            */}
+          <div className="icons">
+            <div className="icon">
+              <img src={notification} alt="smth" className="iconImg" />
+              <div className="counter">2</div>
+            </div>
+          </div>
+        </li>
         <li>
           <button
             id="sign-in"
