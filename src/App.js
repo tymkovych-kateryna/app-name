@@ -1,11 +1,13 @@
 import React from 'react';
 import frog from './images/frog.png';
+
 import BoardContent from './Components/BoardContent/BoardContent';
 import Navbar from './Components/Navbar/Navbar';
 function App() {
   return (
     <div className="trello-container">
         <Navbar/>
+        <BoardContent/>
       {/* <nav className='app-navbar'>Navigation Bar</nav>
       <nav className='board-navbar'>Board Bar</nav> */}
 
@@ -71,7 +73,6 @@ function App() {
           <footer>Add task</footer>
         </div>
       </div> */}
-        <BoardContent/>
     </div>
   );
 }

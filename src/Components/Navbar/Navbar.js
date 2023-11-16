@@ -1,6 +1,4 @@
 import "./Navbar.scss";
-import SignIn from "../SignIn/SignIn";
-import SignUp from "../SignUp/SignUp";
 import frog from "../../images/frog.png"
 
 
