@@ -1,15 +1,9 @@
-import React from 'react';
-import frog from './images/frog.png';
-import BoardContent from './Components/BoardContent/BoardContent';
-import Navbar from './Components/Navbar/Navbar';
-function App() {
-  return (
-    <div className="trello-container">
-        <Navbar/>
-      {/* <nav className='app-navbar'>Navigation Bar</nav>
-      <nav className='board-navbar'>Board Bar</nav> */}
-
-      {/* <div className='board-columns'>
+import "./BoardContent.scss";
+import frog from "../../images/frog.png"
+const BoardContent = () => {
+return(
+    <>
+    <div className='board-columns'>
         <div className='columns'>
           <header>Header</header>
           <ul>
@@ -23,7 +17,7 @@ function App() {
           <footer>Add task</footer>
         </div>
 
-        <div className='columns'>
+        {/* <div className='columns'>
           <header>Header</header>
           <ul>
             <li>
@@ -69,11 +63,12 @@ function App() {
             <li>Second task</li>
           </ul>
           <footer>Add task</footer>
-        </div>
-      </div> */}
-        <BoardContent/>
-    </div>
-  );
+        </div> */}
+
+
+      </div>
+    </>
+)
+
 }
-
-export default App;
+export default BoardContent;
