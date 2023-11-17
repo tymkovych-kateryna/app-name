@@ -7,11 +7,11 @@ const Card = (props) => {
 
   return (
     <>
-      <li>
+      <div className="card-item">
             {card.image && <img src={card.image}/>}
                 {/* Hello */}
                 {card.title}
-      </li>
+      </div>
     </>
   );
 };

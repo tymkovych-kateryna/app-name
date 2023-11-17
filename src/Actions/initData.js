@@ -3,7 +3,7 @@ export const initData = {
   boards: [
     {
       id: "board-1",
-      columnOrder: ["column-1", "column-2"],
+      columnOrder: ["column-1", "column-2","column-3"],
       columns: [
         {
           id: "column-1",
@@ -53,17 +53,46 @@ export const initData = {
                     boardId: 'board-5',
                     columnId: 'column-5',
                     title: 'title of task 5',
-                    image: null
+                    image: frog
                 },
                 {
                     id: 'card-6',
                     boardId: 'board-6',
                     columnId: 'column-6',
                     title: 'title of task 6',
-                    image: frog
+                    image: null
                 }
             ]
         },
+        {
+          id: 'column-3',
+          boardId: 'board-3',
+          title: 'Todo 3',
+          cardOrder: ['card-7','card-8','card-9'],
+          cards:[
+              {
+                  id: 'card-7',
+                  boardId: 'board-7',
+                  columnId: 'column-7',
+                  title: 'title of task 7',
+                  image: null
+              },
+              {
+                  id: 'card-8',
+                  boardId: 'board-8',
+                  columnId: 'column-8',
+                  title: 'title of task 8',
+                  image: null
+              },
+              {
+                  id: 'card-9',
+                  boardId: 'board-9',
+                  columnId: 'column-9',
+                  title: 'title of task 9',
+                  image: frog
+              }
+          ]
+      },
       ],
     },
   ],
