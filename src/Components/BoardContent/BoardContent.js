@@ -1,8 +1,34 @@
 import "./BoardContent.scss";
-import frog from "../../images/frog.png"
 import Column from "../Column/Column";
+import { initData } from "../../Actions/initData";
+import { useState, useEffect } from "react";
+import _ from 'lodash';
+import { mapOrder } from "../../Utilities/Sorts";
 const BoardContent = () => {
-return(
+  const [board, setBoard] = useState({});
+  const [columns, setColumns] = useState([]);
+
+
+useEffect(() =>{
+  const boardInitData = initData.boards.find(item => item.id === 'board-1');
+  if(boardInitData){
+    setBoard(boardInitData);
+
+    //!сортування карточок
+   
+    setColumns(mapOrder(boardInitData.columns, boardInitData.columnOrder, 'id'))
+  }
+}, []);
+
+  if(_.isEmpty(board)){
+    return(
+      <>
+        <div className="not-found">Board not found</div>
+      </>
+    )
+  }
+
+    return(
     <>
     <div className='board-columns'>
         {/* <div className='columns'>
@@ -17,14 +43,19 @@ return(
           </ul>
           <footer>Add task</footer>
         </div> */}
-        <Column/>
-        <Column/>
-        <Column/>
-        <Column/>
-        <Column/>
-        
+          {columns && columns.length > 0 && columns.map((column, index)=>{
+
+              return(
+                <Column 
+                key={column.id}
+                column={column}
+                />
+              )
 
 
+          })}
+        {/* <Column/> */}
+       
       </div>
     </>
 )
