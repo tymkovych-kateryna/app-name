@@ -52,7 +52,7 @@ const onColumnDrop = (dropResult) => {
           dropPlaceholder={{
             animationDuration: 150,
             showOnTop: true,
-            className: 'cards-drop-preview'
+            className: 'column-drop-preview'
           }}
         >
         {/* <div className='columns'>

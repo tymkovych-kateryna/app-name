@@ -4,9 +4,10 @@ $board-navbar-bg-color: #C3BAAA;
 $list-bg-color: #91818A;
 .board-columns {
     display: flex;
-    margin: 0 10px 10px;
-    gap: 10px;
+    margin: 0 10px 10px 0;
+    // gap: 10px;
     overflow-x: auto;
+          // background-color: $list-bg-color;
 
     &::-webkit-scrollbar {
       -webkit-appearance: none;
@@ -16,7 +17,13 @@ $list-bg-color: #91818A;
     }
     &::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.24);
-      // border-radius: 5px solid $list-bg-color;
+      border-radius: 5px solid $list-bg-color;
+    }
+    .column-drop-preview {
+      background-color: rgba(62, 62, 80, 0.1);
+      // background-color: red;
+      border: 1px dashed #abc;
+      margin: 5px 45px 5px 5px;
     }
     
     // .columns {
