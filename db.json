@@ -15,30 +15,7 @@
       "password": "sdf",
       "email": "sdf@sa",
       "id": 3
-    },
-    {
-      "username": "xvxc",
-      "password": "sdf",
-      "email": "sdf@sa",
-      "id": 4
-    },
-    {
-      "username": "sdad",
-      "password": "asdasd",
-      "email": "sdsda@fasf",
-      "id": 5
-    },
-    {
-      "username": "fsdf",
-      "password": "dfsdf",
-      "email": "sfdsdf@gmail",
-      "id": 6
-    },
-    {
-      "username": "alina",
-      "password": "1234",
-      "email": "as@FD",
-      "id": 7
     }
+    
   ]
 }
