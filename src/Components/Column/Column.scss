@@ -1,0 +1,108 @@
+$board-bg-color: #FAF8D4;
+$app-navbar-bg-color: #EBDCCB;
+$board-navbar-bg-color: #C3BAAA;
+$list-bg-color: #91818A;
+.columns {
+    flex: 0 0 auto;
+    width: 350px;
+    margin-top: 15px;
+    // height: calc(100% - 20px);
+    height: calc(100vh - 40px - 50px - 20px);
+    // &:not(:first-child) {
+      
+    // }
+    margin-left: 10px;
+
+
+    // background-color: $list-bg-color;
+    * {
+      // background-color: $list-bg-color;
+
+      color: #333;
+      padding: 5px 0 0 0;
+    }
+    img{
+      background-color: $list-bg-color;
+
+    }
+    
+    header {
+      padding-left: 15px;
+      height: 36px;
+      line-height: 36px;
+      font-size: 16px;
+      font-weight: bold;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      cursor: pointer;
+      background-color: $list-bg-color;
+
+    }
+
+    footer {
+      background-color: $list-bg-color;
+
+      padding-left: 10px;
+      height: 36px;
+      line-height: 36px;
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    div.card-list {
+      background-color: $list-bg-color;
+
+      list-style-type: none;
+      margin: 0;
+      max-height: calc(100% - 36px - 36px);
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
+      }
+      &::-webkit-scrollbar:vertical {
+        width: 11px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: darken($color: $list-bg-color, $amount: 15);
+        border-right: 5px solid $list-bg-color;
+      }
+      .card-ghost {
+        transition: transform 0.18s ease;
+        // background-color: $list-bg-color;
+
+        transform: rotateZ(5deg)
+      }
+      
+      .card-ghost-drop{
+        // background-color: $list-bg-color;
+
+        transition: transform 0.18s ease-in-out;
+        transform: rotateZ(0deg)
+      }
+
+      .card-drop-preview {
+        background-color: rgba(150, 150, 200, 0.1);
+        border: 1px dashed #abc;
+        margin: 5px;
+      }
+      // li {
+      //   background-color: #B2A3B5;
+      //   padding: 10px;
+      //   border-radius: 3px;
+      //   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
+
+      //   &:not(:last-child) {margin-bottom: 10px;}
+
+      //   img {
+      //     display: block;
+      //     width: calc(100% + 10px);
+      //     margin: -10px 0 10px (-10px);
+      //     border-top-left-radius: 3px;
+      //     border-top-right-radius: 3px;
+      //   }
+      // }
+    }
+  }

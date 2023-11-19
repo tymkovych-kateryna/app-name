@@ -1,6 +1,6 @@
 import "./Navbar.scss";
-import SignIn from "../SignIn/SignIn";
-import SignUp from "../SignUp/SignUp";
+import frog from "../../images/frog.png"
+
 
 function Navbar() {
   const SignIn = () => {
@@ -13,7 +13,7 @@ function Navbar() {
   return (
     <section className="top-nav">
       <div>
-        <a href="/#">Logo</a>
+        <a href="/#"><img src={frog} alt="smth"></img></a>
       </div>
       <input id="menu-toggle" type="checkbox" />
       <label className="menu-button-container" htmlFor="menu-toggle">

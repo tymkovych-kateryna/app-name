@@ -9,6 +9,8 @@ function SignIn() {
     username: '',
     password: ''
   })
+  
+  
   const [errors,setErrors] = useState({})
   const [valid,setValid] = useState(true)
   const handleSubmit = (e) => {
@@ -23,6 +25,8 @@ function SignIn() {
       isvalid = false;
       validationErrors.password = "Password name required"
   } 
+
+
   setErrors(validationErrors);
   setValid(isvalid);
   if(Object.keys(validationErrors).length === 0){
