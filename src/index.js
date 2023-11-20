@@ -8,6 +8,7 @@ import './Components/SignIn/SignIn.scss';
 import './Components/SignUp/SignUp.scss';
 
 import './Components/Navbar/Navbar.scss';
+import 'font-awesome/css/font-awesome.min.css';
 
 import {
   createBrowserRouter,

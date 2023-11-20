@@ -25,7 +25,10 @@ body {
   //!робить різні дві полоски перші 
   grid-template-rows: 50px 1fr;
   // background-color: $board-bg-color;
-  
+  .icon{
+    font-size: 15px;
+    margin-right: 3px;
+  }
   
   // .board-columns {
   //   display: flex;

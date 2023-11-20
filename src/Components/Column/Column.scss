@@ -49,6 +49,14 @@ $list-bg-color: #91818A;
       font-weight: bold;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
+      color: black;
+      .footer-action{
+        margin-left: 5px;
+        cursor: pointer;
+       &:hover{
+        color: rgb(89, 88, 88);
+       }
+      }
     }
 
     div.card-list {
@@ -73,19 +81,26 @@ $list-bg-color: #91818A;
         transition: transform 0.18s ease;
         // background-color: $list-bg-color;
 
-        transform: rotateZ(5deg)
+        transform: rotateZ(5deg);
+        
+        font-weight: bold;
+
       }
       
       .card-ghost-drop{
         // background-color: $list-bg-color;
 
         transition: transform 0.18s ease-in-out;
-        transform: rotateZ(0deg)
+        transform: rotateZ(0deg);
+        
+        
       }
+      
 
       .card-drop-preview {
         background-color: rgba(150, 150, 200, 0.1);
         border: 1px dashed #abc;
+        
         margin: 5px;
       }
       // li {
