@@ -25,6 +25,24 @@ $list-bg-color: #91818A;
       border: 1px dashed #abc;
       margin: 5px 45px 5px 5px;
     }
+
+    .add-new-column{
+      width: 250px;
+      height: 32px;
+      padding: 5px;
+      line-height: 30px;
+      border-radius: 5px;
+      // background: linear-gradient(100deg, #978697 0%, #928876 100%);
+
+      background-color: rgb(145, 141, 141);
+      margin: 15px;
+      cursor: pointer;
+      &:hover{
+        background-color: rgb(186, 182, 182);
+        
+      }
+    }
+
     
     // .columns {
     //   flex: 0 0 auto;

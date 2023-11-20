@@ -105,7 +105,12 @@ const onCardDrop = (dropResult, columnId) => {
 
           })}
         {/* <Column/> */}
-       
+           
+          <div className="add-new-column">
+
+            <i className="fa fa-plus icon"></i>Add another column
+          </div>
+
           </Container>
 
       </div>
