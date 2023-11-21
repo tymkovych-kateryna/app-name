@@ -6,6 +6,11 @@ import Navbar from './Components/Navbar/Navbar';
 function App() {
   return (
     <div className="trello-container">
+     {/* <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+         */}
+
         <Navbar/>
         <BoardContent/>
       {/* <nav className='app-navbar'>Navigation Bar</nav>

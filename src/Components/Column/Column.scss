@@ -4,6 +4,9 @@ $board-navbar-bg-color: #C3BAAA;
 $list-bg-color: #91818A;
 .columns {
     flex: 0 0 auto;
+    //todo
+    // зробити меншу ширину для менших пристроів
+    //todo
     width: 350px;
     margin-top: 15px;
     // height: calc(100% - 20px);
@@ -66,7 +69,10 @@ $list-bg-color: #91818A;
       margin: 0;
       max-height: calc(100% - 36px - 36px);
       overflow-y: auto;
-
+      
+      //todo       max-height: calc(75% - 36px - 36px);
+    // для менших екранів між 75 і 50 подивтись
+      //todo
       &::-webkit-scrollbar {
         -webkit-appearance: none;
       }
