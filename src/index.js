@@ -6,7 +6,7 @@ import SignIn from './Components/SignIn/SignIn';
 import SignUp from './Components/SignUp/SignUp';
 import './Components/SignIn/SignIn.scss';
 import './Components/SignUp/SignUp.scss';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './Components/Navbar/Navbar.scss';
 import 'font-awesome/css/font-awesome.min.css';
 

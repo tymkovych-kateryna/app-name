@@ -36,14 +36,20 @@ $list-bg-color: #91818A;
     .add-new-column{
       width: 250px;
       height: 32px;
-      padding: 5px;
-      line-height: 30px;
+      display: flex;
+      //  padding-left: 10px;
+      // line-height: 30px;
+      // justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
       border-radius: 5px;
       // background: linear-gradient(100deg, #978697 0%, #928876 100%);
-
+      height: 50px;
       background-color: rgb(145, 141, 141);
-      // margin: 15px;
-      margin: 15px 15px 0 15px;
+      margin: 15px;
+     
+      // margin: 15px 15px 0 15px;
       cursor: pointer;
       &:hover{
         background-color: rgb(186, 182, 182);
@@ -65,7 +71,7 @@ $list-bg-color: #91818A;
         .btn-success{
           width: 100px;
           cursor: pointer;
-          height: 30px;
+          // height: 30px;
         }
       }
     }

@@ -31,7 +31,7 @@ $list-bg-color: #91818A;
     
     header {
       padding-left: 15px;
-      height: 36px;
+      // height: 36px;
       line-height: 36px;
       font-size: 16px;
       font-weight: bold;
@@ -41,7 +41,34 @@ $list-bg-color: #91818A;
       background-color: $list-bg-color;
 
     }
+    .column-drag-handle{
+      display: flex;
+      padding-right: 5px;
+      .column-title{
+        width: 90%;
+      }
+      .column-dropdown{
+        width: 10%;
+        .dropdown-toggle{
+          padding: 0 7px;
 
+          &::after{
+            content: '...';
+            border: none  !important;
+            outline: none  !important;
+            box-shadow: none  !important;
+          }
+          &:hover{
+            background-color: #b5a5ae;
+          }
+          &:focus{
+            outline: none !important;
+            box-shadow: none  !important;
+          
+          }
+        }
+      }
+    }
     footer {
       background-color: $list-bg-color;
 

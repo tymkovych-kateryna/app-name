@@ -1,12 +1,12 @@
 import "./SignIn.scss";
-
+import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import Navbar from "../Navbar/Navbar";
 import { useState } from "react";
 function SignIn() {
-  
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
   })
   
@@ -17,9 +17,9 @@ function SignIn() {
     e.preventDefault();
     let isvalid = true;
     let validationErrors = {}
-    if(formData.username === "" ||formData.username === null ){
+    if(formData.email === "" ||formData === null ){
         isvalid = false;
-        validationErrors.username = "First name required"
+        validationErrors.username = "Email required"
     }
     if(formData.password === "" ||formData.password === null ){
       isvalid = false;
@@ -29,11 +29,33 @@ function SignIn() {
 
   setErrors(validationErrors);
   setValid(isvalid);
-  if(Object.keys(validationErrors).length === 0){
-    axios.post("http://localhost:8000/users" , formData)
-    .then(result => console.log(result))
+  // if(Object.keys(validationErrors).length === 0){
+    axios.get("http://localhost:8000/users")
+    .then(result => {
+      result.data.map(user =>{
+
+        if(user.email===formData.email){
+          if(user.password === formData.password){
+            navigate("/");          }
+          else{
+            alert("wrong data");
+            isvalid=false;
+            validationErrors.password="Wrong password";
+          }
+
+        }
+        else if(formData.email !== ""){
+          isvalid=false;
+          validationErrors.email="Wrong email";
+        }
+        setErrors(validationErrors);
+        setValid(isvalid);
+        
+    })
+
+    })
     .catch(err => console.log(err))
-  }
+  // }
 
   }
   
@@ -51,8 +73,8 @@ function SignIn() {
               </span>
             } */}
             <div className="input-group">
-                  <input name="username" type="text" className="input" onChange={(event)=> setFormData({...formData, username: event.target.value})} required/>
-                  <label className="label" for="username">UserName</label>
+                  <input name="username" type="text" className="input" onChange={(event)=> setFormData({...formData, email: event.target.value})} required/>
+                  <label className="label" for="email">Email</label>
             </div>
             <div className="input-group">
                   <input name="password" type="password" className="input" onChange={(event)=> setFormData({...formData, password: event.target.value})}required/>

@@ -7,6 +7,7 @@ import { mapOrder } from "../../Utilities/Sorts";
 import { Container, Draggable } from "react-smooth-dnd";
 import {v4 as uuidv4} from 'uuid';
 import { applyDrag } from "../../Utilities/DragDrop";
+
 const BoardContent = () => {
   const [board, setBoard] = useState({});
   const [columns, setColumns] = useState([]);

@@ -15,7 +15,18 @@
       "password": "sdf",
       "email": "sdf@sa",
       "id": 3
+    },
+    {
+      "username": "alina123",
+      "password": "1234",
+      "email": "alina@slay",
+      "id": 4
+    },
+    {
+      "username": "pavlo",
+      "password": "12345",
+      "email": "123@ads",
+      "id": 5
     }
-    
   ]
 }

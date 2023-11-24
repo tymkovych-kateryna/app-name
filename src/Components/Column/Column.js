@@ -3,6 +3,7 @@ import Card from "../Task/Card";
 import frog from "../../images/frog.png";
 import { mapOrder } from "../../Utilities/Sorts";
 import { Container, Draggable } from "react-smooth-dnd";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 const Column = (props) => {
@@ -14,7 +15,26 @@ const Column = (props) => {
   return (
     <>
       <div className="columns">
-        <header className="column-drag-handle">{column.title}</header>
+        <header className="column-drag-handle">
+          <div className="column-title">
+
+          {column.title}
+          </div>
+          <div className="column-dropdown">
+
+          <Dropdown>
+      <Dropdown.Toggle variant="" id="dropdown-basic" size="sm">
+        {/* Dropdown Button */}
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#">Add task</Dropdown.Item>
+        <Dropdown.Item href="#">Remove this column</Dropdown.Item>
+        {/* <Dropdown.Item href="#"></Dropdown.Item> */}
+      </Dropdown.Menu>
+    </Dropdown>
+          </div>
+          </header>
         <div className="card-list">
 
         <Container
