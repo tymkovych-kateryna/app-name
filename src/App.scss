@@ -167,7 +167,19 @@ body {
   grid-template-rows: 50px 1fr;
   
 //!
-
+.customize-input-column{
+  &:focus{
+    outline: none !important;
+    box-shadow: none  !important;
+    font-weight: 400;
+    // width: 100px;
+  }
+  background-color: inherit;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  // width: 200px;
+}
 
 //!
   // background-color: $board-bg-color;

@@ -36,15 +36,18 @@ function SignIn() {
 
         if(user.email===formData.email){
           if(user.password === formData.password){
-            navigate("/");          }
+            navigate("/");         
+           }
           else{
-            alert("wrong data");
+            
             isvalid=false;
             validationErrors.password="Wrong password";
           }
 
         }
         else if(formData.email !== ""){
+          console.log("wrong password or email");
+
           isvalid=false;
           validationErrors.email="Wrong email";
         }
@@ -63,9 +66,9 @@ function SignIn() {
 
     <div>
       <Navbar />
-      <div class="login-page">
-        <div class="form">
-          <form class="login-form" id="login-form" onSubmit={handleSubmit} >
+      <div className="login-page">
+        <div className="form">
+          <form className="login-form" id="login-form" onSubmit={handleSubmit} >
             {/* {
               valid ? <></> : 
               <span>
@@ -81,7 +84,7 @@ function SignIn() {
                   <label className="label" for="username">PassWord</label>
             </div>
             <button>login</button>
-            <p class="message">
+            <p className="message">
               Not registered? <a href="/signup">Create an account</a>
             </p>
           </form>

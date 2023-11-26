@@ -94,6 +94,22 @@ const onCardDrop = (dropResult, columnId) => {
     // console.log('check ', valueInput)
 
   } 
+
+  const onUpdateColumn = (newColumn) => {
+
+    const columnIdUpdate = newColumn.id;
+    let ncols = [...columns];
+    let index = ncols.findIndex(item => item.id === columnIdUpdate); 
+    if(newColumn._destroy){
+      ncols.splice(index,1);
+    }else{
+      ncols[index] = newColumn;
+    }
+    setColumns(ncols);
+  }
+
+    // console.log(columns);
+
     return(
     <>
     <div className='board-columns'>
@@ -110,18 +126,7 @@ const onCardDrop = (dropResult, columnId) => {
             className: 'column-drop-preview'
           }}
         >
-        {/* <div className='columns'>
-          <header>Header</header>
-          <ul>
-            <li>
-              <img src={frog} alt="smth"></img>
-              First task
-            </li>
-            <li>Second task</li>
-            <li>Third task</li>
-          </ul>
-          <footer>Add task</footer>
-        </div> */}
+       
           {columns && columns.length > 0 && columns.map((column, index)=>{
 
               return(
@@ -131,6 +136,7 @@ const onCardDrop = (dropResult, columnId) => {
                 // key={column.id}
                 column={column}
                 onCardDrop={onCardDrop}
+                onUpdateColumn={onUpdateColumn}
                 />
                 </Draggable>
               )
