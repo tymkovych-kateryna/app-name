@@ -9,8 +9,8 @@ function SignIn() {
     email: '',
     password: ''
   })
-  
-  
+  //npx json-server --watch db.json --port 8000
+  const [user,setuser] = useState("");
   const [errors,setErrors] = useState({})
   const [valid,setValid] = useState(true)
   const handleSubmit = (e) => {
@@ -27,6 +27,7 @@ function SignIn() {
   } 
 
 
+
   setErrors(validationErrors);
   setValid(isvalid);
   // if(Object.keys(validationErrors).length === 0){
@@ -39,7 +40,8 @@ function SignIn() {
             navigate("/");         
            }
           else{
-            
+           
+
             isvalid=false;
             validationErrors.password="Wrong password";
           }
@@ -49,7 +51,7 @@ function SignIn() {
           console.log("wrong password or email");
 
           isvalid=false;
-          validationErrors.email="Wrong email";
+          validationErrors.email="Wrong email or password";
         }
         setErrors(validationErrors);
         setValid(isvalid);
@@ -60,21 +62,19 @@ function SignIn() {
     .catch(err => console.log(err))
   // }
 
+
   }
-  
+
   return (
 
     <div>
       <Navbar />
       <div className="login-page">
+        
         <div className="form">
           <form className="login-form" id="login-form" onSubmit={handleSubmit} >
-            {/* {
-              valid ? <></> : 
-              <span>
-                {errors.username}; {errors.password};
-              </span>
-            } */}
+            
+                  {errors.email && <p className="error-message">{errors.email}</p>}
             <div className="input-group">
                   <input name="username" type="text" className="input" onChange={(event)=> setFormData({...formData, email: event.target.value})} required/>
                   <label className="label" for="email">Email</label>
@@ -83,7 +83,7 @@ function SignIn() {
                   <input name="password" type="password" className="input" onChange={(event)=> setFormData({...formData, password: event.target.value})}required/>
                   <label className="label" for="username">PassWord</label>
             </div>
-            <button>login</button>
+            <button type="submit" onClick={()=> setuser(formData)}  >login</button>
             <p className="message">
               Not registered? <a href="/signup">Create an account</a>
             </p>
