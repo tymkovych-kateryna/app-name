@@ -144,6 +144,7 @@ const onCardDrop = (dropResult, columnId) => {
                 
           })}
         {/* <Column/> */}
+         {/* </Container> */}
            {isShowAddList ?
            
           <div className="add-new-column" 

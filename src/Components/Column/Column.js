@@ -6,7 +6,7 @@ import { Container, Draggable } from "react-smooth-dnd";
 import Dropdown from 'react-bootstrap/Dropdown';
 import ConfirmModal from "../../Utilities/ConfirmModal";
 import Form from "react-bootstrap/Form";
-
+import {v4 as uuidv4} from 'uuid';
 import { useEffect, useRef, useState } from "react";
 import { MODAL_ACTION_CLOSE,MODAL_ACTION_CONFIRM } from "../../Utilities/Constant";
 
@@ -19,6 +19,16 @@ const Column = (props) => {
   const [isFirstClick, setFirstClick] = useState(true);
   const inputRef = useRef(null);
 
+  const [isShowAddNewTask, setIsShowAddNewTask] = useState(false);
+  const [valueTextArea, setvalueTextArea] = useState("");
+  const textAreaRef = useRef(null);
+
+  useEffect(()=>{
+    if(isShowAddNewTask === true && textAreaRef && textAreaRef.current){
+      textAreaRef.current.focus();
+    }
+
+  },[isShowAddNewTask])
 
   useEffect(()=>{
     if(column && column.title){
@@ -64,6 +74,26 @@ const handleClickOutside = () => {
     _destroy: false
   }
   onUpdateColumn(newColumn);
+}
+const handleAddNewTask = () => {
+  if(!valueTextArea){
+    textAreaRef.current.focus();
+    return;
+  }
+  const newTask = {
+    id: uuidv4(),
+    boardId: column.boardId,
+    columnId: column.id,
+    title: valueTextArea,
+    image: null,
+  }
+  let newColumn = {...column};
+  newColumn.cards = [...newColumn.cards, newTask];
+  newColumn.cardOrder = newColumn.cards.map(card => card.id);
+
+  onUpdateColumn(newColumn);
+  setvalueTextArea("");
+  setIsShowAddNewTask(false);
 }
   return (
     <>
@@ -136,13 +166,41 @@ const handleClickOutside = () => {
               First task
             </li> */}
          </Container>
-        </div>
-        <footer>
-          <div className="footer-action">
+        {/* </div> */}
 
-         <i className="fa fa-plus icon"></i> Add task
+          {isShowAddNewTask === true &&
+        <div className="add-new-task">
+        
+            <textarea
+            rows="2"
+            className="form-control" 
+            placeholder="Enter task"
+            ref={textAreaRef}
+            value={valueTextArea}
+            onChange={(event) => setvalueTextArea(event.target.value)}
+            >  
+            </textarea>
+            <div className="group-btn">
+
+            <button type="button" 
+            className="btn btn-primary" 
+            onClick={()=> handleAddNewTask()}
+            >Add task</button>
+            <i className="fa fa-times icon" onClick={()=> setIsShowAddNewTask(false)}></i>
+            </div>
+            </div>
+}
+        </div>
+        {isShowAddNewTask === false &&
+        <footer>
+          <div className="footer-action"  onClick={()=> setIsShowAddNewTask(true)}>
+
+         <i 
+         className="fa fa-plus icon" 
+        ></i> Add task
           </div>
           </footer>
+}
       </div>
       <ConfirmModal
       show={isShowModalDelete}

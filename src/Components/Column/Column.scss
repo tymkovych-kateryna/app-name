@@ -69,6 +69,29 @@ $list-bg-color: #91818A;
         }
       }
     }
+    .add-new-task{
+      padding: 10px;
+      .group-btn{
+        padding-top: 5px;
+        align-items: center;
+        display: flex;
+        i{
+          font-size: 20px;
+          padding-left: 10px;
+          cursor: pointer;
+          color: black;
+          &:hover{
+            color: rgb(69, 69, 69);
+          }
+        }
+        .btn-success{
+          width: 100px;
+          cursor: pointer;
+          // height: 30px;
+        }
+      }
+    }
+
     footer {
       background-color: $list-bg-color;
 
