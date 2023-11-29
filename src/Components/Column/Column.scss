@@ -10,9 +10,28 @@ $list-bg-color: #91818A;
     width: 350px;
     margin-top: 15px;
     // height: calc(100% - 20px);
+    
     height: calc(100vh - 40px - 50px - 20px);
     // &:not(:first-child) {
-      
+      @media screen and (max-width: 500px) {
+        height: 50vh;
+        width: 250px;
+        .column-title{
+          input{
+            width: 190px;
+
+          }
+        }
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+        }
+        &::-webkit-scrollbar:vertical {
+          -webkit-appearance: none;
+        }
+        &::-webkit-scrollbar-thumb {
+          -webkit-appearance: none;
+        }
+      }
     // }
     margin-left: 10px;
 
