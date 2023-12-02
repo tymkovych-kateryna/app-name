@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import Navbar from "../Navbar/Navbar";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
+import BoardComponent from '../BoardContent/BoardContent'
 function SignIn() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -13,6 +15,9 @@ function SignIn() {
   const [user,setuser] = useState("");
   const [errors,setErrors] = useState({})
   const [valid,setValid] = useState(true)
+  const setemail = "";
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     let isvalid = true;
@@ -37,10 +42,11 @@ function SignIn() {
 
         if(user.email===formData.email){
           if(user.password === formData.password){
+            setIsLoggedIn(true);
             navigate("/");         
            }
           else{
-           
+            setIsLoggedIn(false);
 
             isvalid=false;
             validationErrors.password="Wrong password";
@@ -68,11 +74,21 @@ function SignIn() {
   return (
 
     <div>
-      <Navbar />
-      <div className="login-page">
+      {/* {isLoggedIn ? (
+      <Navbar data={user.email}/>
+      
+
+      ) : ( */}
+        <div>
+
+       
+          <Navbar data={user.email}/>
+        <div className="login-page">
         
         <div className="form">
-          <form className="login-form" id="login-form" onSubmit={handleSubmit} >
+          <form className="login-form" id="login-form" 
+          onSubmit={handleSubmit} 
+          >
             
                   {errors.email && <p className="error-message">{errors.email}</p>}
             <div className="input-group">
@@ -89,7 +105,9 @@ function SignIn() {
             </p>
           </form>
         </div>
+        </div>
       </div>
+       {/* )} */}
     </div>
   );
 }

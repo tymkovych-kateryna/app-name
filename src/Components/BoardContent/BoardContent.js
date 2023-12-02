@@ -7,7 +7,7 @@ import { mapOrder } from "../../Utilities/Sorts";
 import { Container, Draggable } from "react-smooth-dnd";
 import {v4 as uuidv4} from 'uuid';
 import { applyDrag } from "../../Utilities/DragDrop";
-
+import Navbar from "../Navbar/Navbar";
 const BoardContent = () => {
   const [board, setBoard] = useState({});
   const [columns, setColumns] = useState([]);
@@ -15,6 +15,12 @@ const BoardContent = () => {
   const [isShowAddList, setIsShowAddList] = useState(true);
   const inputRef = useRef(null);
   const [valueInput, setValueInput] = useState("");
+  //* робить щоб можливо було скролити сторінку на малих екранах
+            const cleanClasses = () => {
+              document.body.className = '';
+              };
+              
+              document.addEventListener('touchend', cleanClasses, false);
 
 
   useEffect(()=> {
@@ -67,7 +73,7 @@ const onCardDrop = (dropResult, columnId) => {
   if(_.isEmpty(board)){
     return(
       <>
-        <div className="not-found">Board not found</div>
+        {/* <div className="not-found">Board not found</div> */}
       </>
     )
   }
@@ -112,10 +118,12 @@ const onCardDrop = (dropResult, columnId) => {
 
     return(
     <>
+    {/* <Navbar/> */}
     <div className='board-columns'>
 
 
     <Container
+    //  onClick={cleanClasses}
           orientation="horizontal"
           onDrop={onColumnDrop}
           getChildPayload={index => columns[index]}
@@ -130,10 +138,11 @@ const onCardDrop = (dropResult, columnId) => {
           {columns && columns.length > 0 && columns.map((column, index)=>{
 
               return(
-                <Draggable key={column.id}>
+                <Draggable key={column.id} >
 
                 <Column 
                 // key={column.id}
+               
                 column={column}
                 onCardDrop={onCardDrop}
                 onUpdateColumn={onUpdateColumn}

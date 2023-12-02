@@ -4,11 +4,10 @@ $board-navbar-bg-color: #C3BAAA;
 $list-bg-color: #91818A;
 .board-columns {
     display: flex;
-    margin: 0 10px 10px 0;
+    margin: 5px;
     // gap: 10px;
     overflow-x: auto;
-          // background-color: $list-bg-color;
-
+         
     &::-webkit-scrollbar {
       -webkit-appearance: none;
     }
@@ -21,25 +20,23 @@ $list-bg-color: #91818A;
     }
     .column-drop-preview {
       background-color: rgba(62, 62, 80, 0.1);
-      // background-color: red;
+      
       border: 1px dashed #abc;
+      height: 70%;
       margin-left: 10px;
-      // margin: 5px 45px 5px 5px;
-      // margin: 0;
-      // height: 50%;
+      
       // todo 
      // зробити для меншиъ пристроїв менші картки
      // heigth:50%;
       //todo
+     
     }
 
     .add-new-column{
       width: 250px;
       height: 32px;
       display: flex;
-      //  padding-left: 10px;
-      // line-height: 30px;
-      // justify-content: center;
+     
       align-items: center;
       text-align: center;
       padding: 10px;

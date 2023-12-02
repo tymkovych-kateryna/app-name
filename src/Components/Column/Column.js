@@ -123,7 +123,7 @@ const handleAddNewTask = () => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#">Add task</Dropdown.Item>
+        {/* <Dropdown.Item href="#">Add task</Dropdown.Item> */}
         <Dropdown.Item onClick={toggleModal}>Remove this column</Dropdown.Item>
         {/* <Dropdown.Item href="#"></Dropdown.Item> */}
       </Dropdown.Menu>

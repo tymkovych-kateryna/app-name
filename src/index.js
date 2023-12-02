@@ -9,7 +9,7 @@ import './Components/SignUp/SignUp.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Components/Navbar/Navbar.scss';
 import 'font-awesome/css/font-awesome.min.css';
-
+import Chat from './Components/Chat/Chat.js';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -27,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp/>
+  },
+  {
+    path: "/chat",
+    element: <Chat/>
   }
   
 ]);
