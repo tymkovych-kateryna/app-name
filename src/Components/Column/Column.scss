@@ -8,6 +8,7 @@ $list-bg-color: #91818A;
     // зробити меншу ширину для менших пристроів
     //todo
     width: 350px;
+    margin-left: 10px;
     margin-top: 15px;
     // height: calc(100% - 20px);
     
@@ -33,7 +34,7 @@ $list-bg-color: #91818A;
         }
       }
     // }
-    margin-left: 10px;
+    
 
 
     // background-color: $list-bg-color;
@@ -153,23 +154,23 @@ $list-bg-color: #91818A;
         border-right: 5px solid $list-bg-color;
       }
       .card-ghost {
-        transition: transform 0.18s ease;
-        // background-color: $list-bg-color;
+        // transition: transform 0.18s ease;
+        // // background-color: $list-bg-color;
 
-        transform: rotateZ(5deg);
+        // transform: rotateZ(5deg);
         
         font-weight: bold;
 
       }
       
-      .card-ghost-drop{
-        // background-color: $list-bg-color;
+      // .card-ghost-drop{
+      //   // background-color: $list-bg-color;
 
-        transition: transform 0.18s ease-in-out;
-        transform: rotateZ(0deg);
+      //   // transition: transform 0.18s ease-in-out;
+      //   // transform: rotateZ(0deg);
         
         
-      }
+      // }
       
 
       .card-drop-preview {
