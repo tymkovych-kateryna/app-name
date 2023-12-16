@@ -1,7 +1,6 @@
 import "./Navbar.scss";
-import notification from '../../images/notification.png';
-import SignIn from "../SignIn/SignIn";
-import SignUp from "../SignUp/SignUp";
+import frog from "../../images/frog.png"
+
 
 function Navbar() {
   const SignIn = () => {
@@ -11,11 +10,10 @@ function Navbar() {
   const SignUp = () => {
     window.location.href = "/signup";
   };
-
   return (
     <section className="top-nav">
       <div>
-        <a href="/#">PM</a>
+        <a href="/#"><img src={frog} alt="smth"></img></a>
       </div>
       <input id="menu-toggle" type="checkbox" />
       <label className="menu-button-container" htmlFor="menu-toggle">
@@ -25,22 +23,12 @@ function Navbar() {
         {/* <li>One</li>
       <li>Two</li> */}
         <li>
-          {/* // TODO: добавити іконку для чату
-            */}
-          <div className="icons">
-            <div className="icon">
-              <img src={notification} alt="smth" className="iconImg" />
-              <div className="counter">2</div>
-            </div>
-          </div>
-        </li>
-        <li>
           <button
             id="sign-in"
             className="custom-btn btn-3"
             onClick={SignIn}
           >
-            <span>Sign in</span>
+            <span> Sign in</span>
           </button>
           <span className="span-sign-in">
             <a href="/signin" id="signin">
