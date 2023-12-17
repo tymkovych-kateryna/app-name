@@ -7,6 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import ConfirmModal from "../../Utilities/ConfirmModal";
 import Form from "react-bootstrap/Form";
 import {v4 as uuidv4} from 'uuid';
+import Calendar from 'react-calendar';
 import { useEffect, useRef, useState } from "react";
 import { MODAL_ACTION_CLOSE,MODAL_ACTION_CONFIRM } from "../../Utilities/Constant";
 
@@ -18,7 +19,7 @@ const Column = (props) => {
   const [titleColumn, setTitleColumn] = useState("");
   const [isFirstClick, setFirstClick] = useState(true);
   const inputRef = useRef(null);
-
+  const [isshowCalendar, setcalendar] = useState("");
   const [isShowAddNewTask, setIsShowAddNewTask] = useState(false);
   const [valueTextArea, setvalueTextArea] = useState("");
   const textAreaRef = useRef(null);
@@ -124,7 +125,9 @@ const handleAddNewTask = () => {
 
       <Dropdown.Menu>
         {/* <Dropdown.Item href="#">Add task</Dropdown.Item> */}
+        <Dropdown.Item onClick={toggleModal}>Calendar</Dropdown.Item>
         <Dropdown.Item onClick={toggleModal}>Remove this column</Dropdown.Item>
+
         {/* <Dropdown.Item href="#"></Dropdown.Item> */}
       </Dropdown.Menu>
     </Dropdown>
