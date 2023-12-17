@@ -7,7 +7,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import ConfirmModal from "../../Utilities/ConfirmModal";
 import Form from "react-bootstrap/Form";
 import {v4 as uuidv4} from 'uuid';
-import Calendar from 'react-calendar';
 import { useEffect, useRef, useState } from "react";
 import { MODAL_ACTION_CLOSE,MODAL_ACTION_CONFIRM } from "../../Utilities/Constant";
 
