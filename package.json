@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-aria/ssr": "^3.9.0",
     "@restart/hooks": "^0.4.15",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.1.2",
