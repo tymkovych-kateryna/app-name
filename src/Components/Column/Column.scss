@@ -4,21 +4,44 @@ $board-navbar-bg-color: #C3BAAA;
 $list-bg-color: #91818A;
 .columns {
     flex: 0 0 auto;
+    //todo
+    // зробити меншу ширину для менших пристроів
+    //todo
     width: 350px;
+    margin-left: 10px;
     margin-top: 15px;
     // height: calc(100% - 20px);
+    
     height: calc(100vh - 40px - 50px - 20px);
     // &:not(:first-child) {
-      
+      @media screen and (max-width: 500px) {
+        height: 50vh;
+        width: 250px;
+        .column-title{
+          input{
+            width: 190px;
+
+          }
+        }
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+        }
+        &::-webkit-scrollbar:vertical {
+          -webkit-appearance: none;
+        }
+        &::-webkit-scrollbar-thumb {
+          -webkit-appearance: none;
+        }
+      }
     // }
-    margin-left: 10px;
+    
 
 
     // background-color: $list-bg-color;
     * {
       // background-color: $list-bg-color;
 
-      color: #333;
+      // color: #333;
       padding: 5px 0 0 0;
     }
     img{
@@ -28,7 +51,7 @@ $list-bg-color: #91818A;
     
     header {
       padding-left: 15px;
-      height: 36px;
+      // height: 36px;
       line-height: 36px;
       font-size: 16px;
       font-weight: bold;
@@ -38,17 +61,75 @@ $list-bg-color: #91818A;
       background-color: $list-bg-color;
 
     }
+    .column-drag-handle{
+      display: flex;
+      padding-right: 5px;
+      .column-title{
+        width: 90%;
+      }
+      .column-dropdown{
+        width: 10%;
+        .dropdown-toggle{
+          padding: 0 7px;
+
+          &::after{
+            content: '...';
+            border: none  !important;
+            outline: none  !important;
+            box-shadow: none  !important;
+          }
+          &:hover{
+            background-color: #b5a5ae;
+          }
+          &:focus{
+            outline: none !important;
+            box-shadow: none  !important;
+          
+          }
+        }
+      }
+    }
+    .add-new-task{
+      padding: 10px;
+      .group-btn{
+        padding-top: 5px;
+        align-items: center;
+        display: flex;
+        i{
+          font-size: 20px;
+          padding-left: 10px;
+          cursor: pointer;
+          color: black;
+          &:hover{
+            color: rgb(69, 69, 69);
+          }
+        }
+        .btn-success{
+          width: 100px;
+          cursor: pointer;
+          // height: 30px;
+        }
+      }
+    }
 
     footer {
       background-color: $list-bg-color;
 
       padding-left: 10px;
       height: 36px;
-      line-height: 36px;
+      // line-height: 36px;
       font-size: 16px;
       font-weight: bold;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
+      color: black;
+      .footer-action{
+        margin-left: 5px;
+        cursor: pointer;
+       &:hover{
+        color: rgb(89, 88, 88);
+       }
+      }
     }
 
     div.card-list {
@@ -58,7 +139,10 @@ $list-bg-color: #91818A;
       margin: 0;
       max-height: calc(100% - 36px - 36px);
       overflow-y: auto;
-
+      
+      //todo       max-height: calc(75% - 36px - 36px);
+    // для менших екранів між 75 і 50 подивтись
+      //todo
       &::-webkit-scrollbar {
         -webkit-appearance: none;
       }
@@ -70,39 +154,31 @@ $list-bg-color: #91818A;
         border-right: 5px solid $list-bg-color;
       }
       .card-ghost {
-        transition: transform 0.18s ease;
-        // background-color: $list-bg-color;
+        // transition: transform 0.18s ease;
+        // // background-color: $list-bg-color;
 
-        transform: rotateZ(5deg)
+        // transform: rotateZ(5deg);
+        
+        font-weight: bold;
+
       }
       
-      .card-ghost-drop{
-        // background-color: $list-bg-color;
+      // .card-ghost-drop{
+      //   // background-color: $list-bg-color;
 
-        transition: transform 0.18s ease-in-out;
-        transform: rotateZ(0deg)
-      }
+      //   // transition: transform 0.18s ease-in-out;
+      //   // transform: rotateZ(0deg);
+        
+        
+      // }
+      
 
       .card-drop-preview {
         background-color: rgba(150, 150, 200, 0.1);
         border: 1px dashed #abc;
+        
         margin: 5px;
       }
-      // li {
-      //   background-color: #B2A3B5;
-      //   padding: 10px;
-      //   border-radius: 3px;
-      //   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
-
-      //   &:not(:last-child) {margin-bottom: 10px;}
-
-      //   img {
-      //     display: block;
-      //     width: calc(100% + 10px);
-      //     margin: -10px 0 10px (-10px);
-      //     border-top-left-radius: 3px;
-      //     border-top-right-radius: 3px;
-      //   }
-      // }
+     
     }
   }

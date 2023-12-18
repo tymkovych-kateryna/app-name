@@ -7,7 +7,7 @@
   all:unset;
   padding: 1rem;
   border: 1px solid blue;
-  border-radius: 10px;
+  // border-radius: 10px;
   transition: 150ms
   cubic-bezier(0.4,0,0.2,1);
 }
@@ -32,11 +32,10 @@
   color: var(--primary);
 }
 
-body {
- 
-  background: linear-gradient(90deg, #b9a9b2 0%, #cbc0a9  50%);
-}
 
+.error-message{
+  color: red;
+}
 
 .login-page {
   width: 360px;
