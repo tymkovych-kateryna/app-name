@@ -11,7 +11,6 @@ function SignIn() {
     email: '',
     password: ''
   })
-  
   //npx json-server --watch db.json --port 8000
   const [user,setuser] = useState("");
   const [errors,setErrors] = useState({})
