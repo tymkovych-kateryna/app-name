@@ -1,6 +1,5 @@
 import "./Column.scss";
 import Card from "../Task/Card";
-import frog from "../../images/frog.png";
 import { mapOrder } from "../../Utilities/Sorts";
 import { Container, Draggable } from "react-smooth-dnd";
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -8,9 +7,10 @@ import ConfirmModal from "../../Utilities/ConfirmModal";
 import Form from "react-bootstrap/Form";
 import {v4 as uuidv4} from 'uuid';
 import Calendar from 'react-calendar';
+import calendar from '../../images/calendar.png';
 import { useEffect, useRef, useState } from "react";
 import { MODAL_ACTION_CLOSE,MODAL_ACTION_CONFIRM } from "../../Utilities/Constant";
-
+import 'react-calendar/dist/Calendar.css';
 const Column = (props) => {
   const { column, onCardDrop,onUpdateColumn } = props;
   const cards = mapOrder(column.cards, column.cardOrder, "id");
@@ -23,6 +23,40 @@ const Column = (props) => {
   const [isShowAddNewTask, setIsShowAddNewTask] = useState(false);
   const [valueTextArea, setvalueTextArea] = useState("");
   const textAreaRef = useRef(null);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleDateChange = (date) => {
+    const today = new Date(); 
+    const selectedDate = date; 
+    
+    if (selectedDate < today) {
+     
+      alert('Обрана дата має бути не меншою за сьогоднішню!');
+      return;
+    }
+    const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
+  const formattedDate =  date.getDate().toString().padStart(2, '0') + '-' + (date.getMonth() + 1).toString().padStart(2, '0')+ '-'  + date.getFullYear()  ;
+  setSelectedDate(date);
+  setShowCalendar(false);
+  };
+  
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  
+  
+  const toggleCalendar = () => {
+    setShowCalendar(!showCalendar);
+  };
 
   useEffect(()=>{
     if(isShowAddNewTask === true && textAreaRef && textAreaRef.current){
@@ -55,6 +89,15 @@ const Column = (props) => {
     toggleModal();
 
   }
+  const onCalend = (type) =>{
+    if(type === MODAL_ACTION_CLOSE){
+      // toggleModal();
+        closeModal();
+    }
+    if(type === MODAL_ACTION_CONFIRM){
+       openModal();
+    }
+  }
  
 const selectAllText = (event) => {
   setFirstClick(false);
@@ -64,7 +107,7 @@ const selectAllText = (event) => {
   } else {
     inputRef.current.setSelectionRange(titleColumn.length,titleColumn.length);
   }
-  // event.target.focus();
+ 
   
 }
 const handleClickOutside = () => {
@@ -100,9 +143,10 @@ const handleAddNewTask = () => {
     <>
       <div className="columns">
         <header className="column-drag-handle">
+       
           <div className="column-title">
-
-          {/* {column.title} */}
+          
+         
           <Form.Control 
           size={"sm"}
           type="text"
@@ -117,21 +161,38 @@ const handleAddNewTask = () => {
           />
           </div>
           <div className="column-dropdown">
-
+          
           <Dropdown>
       <Dropdown.Toggle variant="" id="dropdown-basic" size="sm">
-        {/* Dropdown Button */}
+      
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        {/* <Dropdown.Item href="#">Add task</Dropdown.Item> */}
-        <Dropdown.Item onClick={toggleModal}>Calendar</Dropdown.Item>
+        <Dropdown.Item >Show chart</Dropdown.Item>
+        <Dropdown.Item onClick={openModal}>Show project term</Dropdown.Item>
         <Dropdown.Item onClick={toggleModal}>Remove this column</Dropdown.Item>
-
-        {/* <Dropdown.Item href="#"></Dropdown.Item> */}
+        
+   
       </Dropdown.Menu>
+    
     </Dropdown>
           </div>
+          
+         
+          {showCalendar ? (
+        <div className="full-screen-calendar"
+        
+        >
+          <Calendar locale="en-GB" onChange={handleDateChange} value={selectedDate}/>
+        </div>
+      ) : (
+        <img
+          src={calendar}
+          className="img-calendar"
+          onClick={toggleCalendar}
+        />
+      )}
+          
           </header>
         <div className="card-list">
 
@@ -164,12 +225,9 @@ const handleAddNewTask = () => {
             )
 
           })}
-          {/* <li>
-              <img src={frog} alt="smth"></img>
-              First task
-            </li> */}
+         
          </Container>
-        {/* </div> */}
+      
 
           {isShowAddNewTask === true &&
         <div className="add-new-task">
@@ -208,9 +266,19 @@ const handleAddNewTask = () => {
       <ConfirmModal
       show={isShowModalDelete}
       title={"Remove a column"}
-      content={`Are you sure yo remove tjis column: ${column.title}`}
+      content={`Are you sure yo remove this column: ${column.title}`}
       onAction={onModalAction}
+      
       />
+       <ConfirmModal
+       title={"Term of project"}
+        show={isModalOpen}
+        content={ `Проект повинен бути виконаний до:  ${ selectedDate.getDate().toString().padStart(2, '0') + '-' + (selectedDate.getMonth() + 1).toString().padStart(2, '0')+ '-'  + selectedDate.getFullYear()}`}
+        // date={selectedDate} 
+        onClose={closeModal}
+        onAction={onCalend}
+      />
+      
     </>
   );
 };

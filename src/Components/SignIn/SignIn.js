@@ -19,6 +19,8 @@ function SignIn() {
   const setemail = "";
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
+  let statuslogin = localStorage.getItem('button-click')=== 'false';
   const handleSubmit = (e) => {
     e.preventDefault();
     let isvalid = true;
@@ -43,7 +45,9 @@ function SignIn() {
 
         if(user.email===formData.email){
           if(user.password === formData.password){
-            setIsLoggedIn(true);
+            localStorage.setItem('username', formData.email);
+            statuslogin = localStorage.setItem('button-click', 'false');
+            // setIsLoggedIn(true);
             navigate("/");         
            }
           else{
@@ -71,7 +75,8 @@ function SignIn() {
 
 
   }
-
+  let username = localStorage.getItem('username');
+  
   return (
 
     <div>
@@ -83,7 +88,8 @@ function SignIn() {
         <div>
 
        
-          <Navbar data={user.email}/>
+          {/* <Navbar data={user.email}/> */}
+          <Navbar data={username} />
         <div className="login-page">
         
         <div className="form">
@@ -100,7 +106,7 @@ function SignIn() {
                   <input name="password" type="password" className="input" onChange={(event)=> setFormData({...formData, password: event.target.value})}required/>
                   <label className="label" for="username">PassWord</label>
             </div>
-            <button type="submit" onClick={()=> setuser(formData)}  >login</button>
+            <button type="submit" className="button-click" onClick={()=> setuser(formData)}  >login</button>
             <p className="message">
               Not registered? <a href="/signup">Create an account</a>
             </p>

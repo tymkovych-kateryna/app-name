@@ -8,7 +8,7 @@ function App() {
     <div className="trello-container">
     
 
-        <Navbar/>
+        <Navbar />
         <BoardContent/>
     
     </div>
