@@ -1,11 +1,12 @@
 import axios from "axios";
+import { successToast, errorToast } from "../helpers/notifications";
 
 export const getCards = async () => {
   try {
     const response = await axios.get("/cards");
     return response.data;
   } catch (error) {
-    console.log(`Error fetching cards: ${error}`);
+    errorToast(`Error fetching cards: ${error}`);
     throw error;
   }
 };
@@ -15,7 +16,7 @@ export const getCard = async (id) => {
     const response = await axios.get(`/cards/${id}`);
     return response.data;
   } catch (error) {
-    console.log(`Error fetching card: ${error}`);
+    errorToast(`Error fetching card: ${error}`);
     throw error;
   }
 };
@@ -23,10 +24,10 @@ export const getCard = async (id) => {
 export const createCard = async (data) => {
   try {
     const response = await axios.post(`/cards`, data);
-    console.log("Successfuly created");
+    successToast("Successfuly created");
     return response.data;
   } catch (error) {
-    console.log(`Error creating card: ${error}`);
+    errorToast(`Error creating card: ${error}`);
     throw error;
   }
 };
@@ -34,10 +35,10 @@ export const createCard = async (data) => {
 export const updateCard = async ({ id, data }) => {
   try {
     const response = await axios.put(`/cards/${id}`, { ...data });
-    console.log("Successfuly updated");
+    successToast("Successfuly updated");
     return response.data;
   } catch (error) {
-    console.log(`Error updating card: ${error}`);
+    errorToast(`Error updating card: ${error}`);
     throw error;
   }
 };
@@ -45,10 +46,10 @@ export const updateCard = async ({ id, data }) => {
 export const deleteCard = async (id) => {
   try {
     const response = await axios.delete(`/cards/${id}`);
-    console.log("Successfuly deleted");
+    successToast("Successfuly deleted");
     return response.data;
   } catch (error) {
-    console.log(`Error deleting card: ${error}`);
+    errorToast(`Error deleting card: ${error}`);
     throw error;
   }
 };
