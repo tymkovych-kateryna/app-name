@@ -13,7 +13,7 @@ const Card = (props) => {
     textDecoration: isCompleted ? "line-through" : "none",
   };
   const { card } = props;
-  //   const cards = mapOrder(card.image, card.cardOrder, 'id');
+  // const cards = mapOrder(card.image, card.cardOrder, 'id');
 
   return (
     <>
