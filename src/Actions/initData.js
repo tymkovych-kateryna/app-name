@@ -18,14 +18,14 @@ export const initData = {
               boardId: "board-1",
               columnId: "column-1",
               title: "VERY IMPORTANT",
-              image: test,
+              // image: test,
             },
             {
               id: "card-2",
               boardId: "board-2",
               columnId: "column-2",
               title: "title of task 2",
-              image: frog,
+              // image: frog,
             },
             {
               id: "card-3",
