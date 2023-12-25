@@ -4,15 +4,21 @@ import "./Card.scss";
 
 const Card = (props) => {
   const [isCompleted, setIsCompleted] = useState(false);
-
+  const [completedCount, setCompletedCount] = useState(0);
+  const [isChecked, setIsChecked] = useState(false);
   const handleCheckboxChange = () => {
-    setIsCompleted(!isCompleted);
+    setIsCompleted((prevState) => {
+      onCheckboxChange(!prevState); // Передайте зміну стану чекбоксу назад у `Column`
+      return !prevState;
+    });
   };
-
+  const showAlert = () => {
+    // alert(`Кількість увімкнених чекбоксів: ${completedCount}`);
+  };
   const cardStyle = {
     textDecoration: isCompleted ? "line-through" : "none",
   };
-  const { card } = props;
+  const { card,onCheckboxChange } = props;
   //   const cards = mapOrder(card.image, card.cardOrder, 'id');
 
   return (
@@ -27,15 +33,18 @@ const Card = (props) => {
         )}
 
         <label className="">
-          <input
-            type="checkbox"
-            id="myCheckbox"
-            checked={isCompleted}
-            onChange={handleCheckboxChange}
-          />
-          <span className="task" style={cardStyle}>
-            {card.title}
-          </span>
+        <input
+        type="checkbox"
+        checked={isCompleted}
+        onChange={handleCheckboxChange}
+      />
+         <span
+          className="task"
+          style={cardStyle}
+          onClick={() => showAlert()} // Вивід alert при кліку на текст картки
+        >
+          {card.title}
+        </span>
         </label>
       </div>
     </>

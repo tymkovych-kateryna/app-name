@@ -35,7 +35,10 @@ const Column = (props) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [completedCount, setCompletedCount] = useState(0);
+  const updateCompletedCount = (isChecked) => {
+    setCompletedCount((prevCount) => isChecked ? prevCount + 1 : prevCount - 1);
+  };
   const handleDateChange = (date) => {
     const today = new Date();
     const selectedDate = date;
@@ -106,7 +109,18 @@ const Column = (props) => {
       openModal();
     }
   };
-
+  const handleCheckboxChange = (isChecked) => {
+    // Функція для підрахунку кількості увімкнених чекбоксів
+    if (isChecked) {
+      setCompletedCount((prevCount) => prevCount + 1);
+    } else {
+      setCompletedCount((prevCount) => prevCount - 1);
+    }
+  };
+  const generateChart = () => {
+    // Після натискання на "Show chart" виведемо alert із кількістю увімкнених чекбоксів
+    alert(`Кількість увімкнених чекбоксів: ${completedCount}`);
+  };
   const selectAllText = (event) => {
     setFirstClick(false);
     if (setFirstClick) {
@@ -174,8 +188,8 @@ const Column = (props) => {
               ></Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item>Show chart</Dropdown.Item>
-                <Dropdown.Item onClick={openModal}>
+              <Dropdown.Item onClick={generateChart}>Show chart</Dropdown.Item>
+                              <Dropdown.Item onClick={openModal}>
                   Show project term
                 </Dropdown.Item>
                 <Dropdown.Item onClick={toggleModal}>
@@ -221,7 +235,7 @@ const Column = (props) => {
               cards.map((card, index) => {
                 return (
                   <Draggable key={card.id}>
-                    <Card card={card} />
+            <Card card={card} onCheckboxChange={updateCompletedCount} />
                   </Draggable>
                 );
               })}
