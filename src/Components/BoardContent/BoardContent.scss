@@ -1,81 +1,77 @@
-$board-bg-color: #FAF8D4;
-$app-navbar-bg-color: #EBDCCB;
-$board-navbar-bg-color: #C3BAAA;
-$list-bg-color: #91818A;
+$board-bg-color: #faf8d4;
+$app-navbar-bg-color: #ebdccb;
+$board-navbar-bg-color: #c3baaa;
+$list-bg-color: #91818a;
 .board-columns {
-    display: flex;
-    margin: 5px;
-    // gap: 10px;
-    overflow-x: auto;
-         
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
-    }
-    &::-webkit-scrollbar:horizontal {
-      height: 11px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.24);
-      border-radius: 5px solid $list-bg-color;
-    }
-    .column-drop-preview {
-      background-color: rgba(62, 62, 80, 0.1);
-      
-      border: 1px dashed #abc;
-      height: 70%;
-      margin-left: 10px;
-      
-      // todo 
-     // зробити для меншиъ пристроїв менші картки
-     // heigth:50%;
-      //todo
-     
-    }
+  display: flex;
+  margin: 5px;
+  // gap: 10px;
+  overflow-x: auto;
 
-    .add-new-column{
-      width: 250px;
-      height: 32px;
-      display: flex;
-     
-      align-items: center;
-      text-align: center;
-      padding: 10px;
-      border-radius: 5px;
-      // background: linear-gradient(100deg, #978697 0%, #928876 100%);
-      height: 50px;
-      background-color: rgb(145, 141, 141);
-      margin: 15px;
-     
-      // margin: 15px 15px 0 15px;
-      cursor: pointer;
-      &:hover{
-        background-color: rgb(186, 182, 182);
-        
-      }
-    }
-    .content-add-column{
-      // padding: 15px;
-      margin: 15px;
-      .group-btn{
-        padding-top: 5px;
-        align-items: center;
-        display: flex;
-        i{
-          font-size: 20px;
-          padding-left: 10px;
-          cursor: pointer;
-        }
-        .btn-success{
-          width: 100px;
-          cursor: pointer;
-          // height: 30px;
-        }
-      }
-    }
-    .form-control{
-      width: 255px;
-      height: 32px;
-    }
-
-  
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
   }
+  &::-webkit-scrollbar:horizontal {
+    height: 11px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.24);
+    border-radius: 5px solid $list-bg-color;
+  }
+  .column-drop-preview {
+    background-color: rgba(62, 62, 80, 0.1);
+
+    border: 1px dashed #abc;
+    height: 70%;
+    margin-left: 10px;
+
+    // todo
+    // зробити для меншиъ пристроїв менші картки
+    // heigth:50%;
+    //todo
+  }
+
+  .add-new-column {
+    width: 250px;
+    height: 32px;
+    display: flex;
+
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    // background: linear-gradient(100deg, #978697 0%, #928876 100%);
+    height: 50px;
+    background-color: rgb(145, 141, 141);
+    margin: 15px;
+
+    // margin: 15px 15px 0 15px;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(186, 182, 182);
+    }
+  }
+  .content-add-column {
+    // padding: 15px;
+    margin: 15px;
+    .group-btn {
+      padding-top: 5px;
+      align-items: center;
+      display: flex;
+      i {
+        font-size: 20px;
+        padding-left: 10px;
+        cursor: pointer;
+      }
+      .btn-success {
+        width: 100px;
+        cursor: pointer;
+        // height: 30px;
+      }
+    }
+  }
+  .form-control {
+    width: 255px;
+    height: 32px;
+  }
+}

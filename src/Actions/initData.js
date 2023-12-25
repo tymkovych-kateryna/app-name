@@ -17,7 +17,7 @@ export const initData = {
               id: "card-1",
               boardId: "board-1",
               columnId: "column-1",
-              title: "title of task 1",
+              title: "VERY IMPORTANT",
               image: test,
             },
             {
@@ -65,35 +65,6 @@ export const initData = {
             },
           ],
         },
-        // {
-        //   id: "column-3",
-        //   boardId: "board-3",
-        //   title: "Todo 3",
-        //   cardOrder: ["card-7", "card-8", "card-9"],
-        //   cards: [
-        //     {
-        //       id: "card-7",
-        //       boardId: "board-7",
-        //       columnId: "column-7",
-        //       title: "title of task 7",
-        //       image: null,
-        //     },
-        //     {
-        //       id: "card-8",
-        //       boardId: "board-8",
-        //       columnId: "column-8",
-        //       title: "title of task 8",
-        //       image: null,
-        //     },
-        //     {
-        //       id: "card-9",
-        //       boardId: "board-9",
-        //       columnId: "column-9",
-        //       title: "title of task 9",
-        //       image: frog,
-        //     },
-        //   ],
-        // },
         {
           id: "column-3",
           boardId: "board-3",

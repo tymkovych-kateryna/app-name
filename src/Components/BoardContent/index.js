@@ -1,13 +1,16 @@
-import "./BoardContent.scss";
-import Column from "../Column/Column";
-import { initData } from "../../Actions/initData";
 import { useState, useEffect, useRef } from "react";
-import _ from "lodash";
-import { mapOrder } from "../../Utilities/Sorts";
 import { Container, Draggable } from "react-smooth-dnd";
 import { v4 as uuidv4 } from "uuid";
+import _ from "lodash";
+
 import { applyDrag } from "../../Utilities/DragDrop";
-import Navbar from "../Navbar/Navbar";
+import { mapOrder } from "../../Utilities/Sorts";
+import { initData } from "../../Actions/initData";
+
+import Column from "../Column";
+
+import "./BoardContent.scss";
+
 const BoardContent = () => {
   const [board, setBoard] = useState({});
   const [columns, setColumns] = useState([]);
