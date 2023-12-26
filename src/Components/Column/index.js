@@ -5,6 +5,8 @@ import Form from "react-bootstrap/Form";
 import Calendar from "react-calendar";
 import { v4 as uuidv4 } from "uuid";
 
+import {Chart} from "react-google-charts";
+
 import Card from "../Task";
 
 import calendar from "../../images/calendar.png";
@@ -36,6 +38,29 @@ const Column = (props) => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
+  const [chartData, setChartData] = useState(null);
+  const [showChart, setShowChart] = useState(false);
+//npx json-server --watch db.json --port 8000
+  const closeChart = () => {
+    setShowChart(false);
+    setChartData(null);
+  };
+  const generateChartData = () => {
+   
+    setChartData(data);
+    setShowChart(true);
+    
+  };
+  const data =[
+    ["Task","From all task"],
+    ["Done",completedCount],
+    ["Undone", cards.length-completedCount]
+  ];
+  const options={
+    title: "Done tasks",
+    pieHole: 0.4,
+    is3D: false,
+  };
   const updateCompletedCount = (isChecked) => {
     setCompletedCount((prevCount) => isChecked ? prevCount + 1 : prevCount - 1);
   };
@@ -44,18 +69,10 @@ const Column = (props) => {
     const selectedDate = date;
 
     if (selectedDate < today) {
-      alert("Обрана дата має бути не меншою за сьогоднішню!");
+      alert("The selected date must be at least today!");
       return;
     }
-    // const year = date.getFullYear();
-    // const month = date.getMonth();
-    // const day = date.getDate();
-    // const formattedDate =
-    //   date.getDate().toString().padStart(2, '0') +
-    //   '-' +
-    //   (date.getMonth() + 1).toString().padStart(2, '0') +
-    //   '-' +
-    //   date.getFullYear();
+  
     setSelectedDate(date);
     setShowCalendar(false);
   };
@@ -102,11 +119,10 @@ const Column = (props) => {
   };
   const onCalend = (type) => {
     if (type === MODAL_ACTION_CLOSE) {
-      // toggleModal();
       closeModal();
     }
     if (type === MODAL_ACTION_CONFIRM) {
-      openModal();
+      closeModal();
     }
   };
 
@@ -158,7 +174,10 @@ const Column = (props) => {
     }
   };
   const generateChart = () => {
-    alert(`Кількість увімкнених чекбоксів: ${completedCount}`);
+    // alert(`Кількість увімкнених чекбоксів: ${completedCount}`);
+    generateChartData();    
+    setShowChart(true);
+
   };
   return (
     <>
@@ -187,7 +206,8 @@ const Column = (props) => {
               ></Dropdown.Toggle>
 
               <Dropdown.Menu>
-              <Dropdown.Item onClick={generateChart}>Show chart</Dropdown.Item>                <Dropdown.Item onClick={openModal}>
+              <Dropdown.Item onClick={generateChart}>Show chart</Dropdown.Item>          
+                    <Dropdown.Item onClick={openModal}>
                   Show project term
                 </Dropdown.Item>
                 <Dropdown.Item onClick={toggleModal}>
@@ -234,11 +254,23 @@ const Column = (props) => {
                 return (
                   <Draggable key={card.id}>
             <Card card={card} onCheckboxChange={updateCompletedCount} />
+        
           </Draggable>
                 );
               })}
           </Container>
-
+          {chartData && (
+            <>
+            <Chart
+              chartType="PieChart"
+              data={data}
+              options={options}
+              className="chart"
+              />
+            <button className="chart-btn" onClick={closeChart}>Close chart</button>
+              </>
+          )
+          }
           {isShowAddNewTask === true && (
             <div className="add-new-task">
               <textarea
@@ -285,7 +317,7 @@ const Column = (props) => {
       <ConfirmModal
         title={"Term of project"}
         show={isModalOpen}
-        content={`Проект повинен бути виконаний до:  ${
+        content={`The project must be completed by:  ${
           selectedDate.getDate().toString().padStart(2, "0") +
           "-" +
           (selectedDate.getMonth() + 1).toString().padStart(2, "0") +

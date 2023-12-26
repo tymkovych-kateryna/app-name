@@ -137,9 +137,13 @@ body {
     -webkit-background-clip: text;
     color: transparent;
   }
-  img {
+  .iconImg {
     height: 40px;
   }
+  .magnific-glass{
+    height: 30px;
+  }
+  
   .counter {
     z-index: 1;
     width: 15px;
@@ -207,6 +211,7 @@ body {
   margin-top: 0px;
   transform: rotate(-405deg);
 }
+
 //! change to 700
 @media (max-width: 700px) {
   .menu-button-container {
