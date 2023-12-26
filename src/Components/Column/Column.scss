@@ -4,48 +4,48 @@ $board-navbar-bg-color: #c3baaa;
 $list-bg-color: #91818a;
 .columns {
   flex: 0 0 auto;
-  
+
   width: 350px;
   margin-left: 10px;
   margin-top: 15px;
 
   height: calc(100vh - 40px - 50px - 20px);
-    .chart{
-      position: absolute;
+  .chart {
+    position: absolute;
     top: 0;
     width: 30%;
     height: 400px;
     z-index: 1;
+  }
+  .chart-btn {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    border-radius: 3px;
+    color: black;
+    background-color: rgb(102, 111, 119);
+    &:hover {
+      background-color: rgb(248, 95, 95);
     }
-    .chart-btn{
-      position: absolute;
-      top: 0;
-      z-index: 1;
-      border-radius: 3px;
-      color: black;
-      background-color:rgb(102, 111, 119);
-      &:hover {
-        background-color: rgb(248, 95, 95);
-      }
-    }
+  }
   @media screen and (max-width: 500px) {
     height: 50vh;
     width: 250px;
-    .chart{
+    .chart {
       position: absolute;
-    top: 0;
-    z-index: 1;
-    width: 30%;
-    height: 400px;
+      top: 0;
+      z-index: 1;
+      width: 30%;
+      height: 400px;
     }
-    .chart-btn{
+    .chart-btn {
       position: absolute;
       top: 0;
       z-index: 1;
       border-radius: 3px;
       color: black;
       width: 100px;
-      background-color:rgb(102, 111, 119);
+      background-color: rgb(102, 111, 119);
       &:hover {
         background-color: rgb(248, 95, 95);
       }
@@ -76,7 +76,6 @@ $list-bg-color: #91818a;
   }
 
   * {
-   
     padding: 5px 0 0 0;
   }
   img {
@@ -109,7 +108,7 @@ $list-bg-color: #91818a;
         padding: 0 7px;
 
         &::after {
-          content: '...';
+          content: "...";
           border: none !important;
           outline: none !important;
           box-shadow: none !important;
@@ -196,8 +195,8 @@ $list-bg-color: #91818a;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: white; 
-      z-index: 1000; 
+      background-color: white;
+      z-index: 1000;
     }
 
     .card-drop-preview {
