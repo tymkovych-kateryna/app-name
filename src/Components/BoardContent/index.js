@@ -55,7 +55,7 @@ const BoardContent = () => {
     setBoard(newBoard);
   };
   const onCardDrop = (dropResult, columnId) => {
-    console.log(">>> inside onCardDrop", dropResult);
+    // console.log(">>> inside onCardDrop", dropResult);
 
     let newColumns = [...columns];
     let currentColumn = newColumns.find((column) => column.id === columnId);

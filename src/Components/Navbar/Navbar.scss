@@ -34,7 +34,7 @@ button {
 .btn-3:before,
 .btn-3:after {
   position: absolute;
-  content: '';
+  content: "";
   right: 0;
   top: 0;
   background: #faf8d4;
@@ -64,7 +64,7 @@ button {
 .btn-3 span:before,
 .btn-3 span:after {
   position: absolute;
-  content: '';
+  content: "";
   left: 0;
   bottom: 0;
   background: #faf8d4;
@@ -140,10 +140,10 @@ body {
   .iconImg {
     height: 40px;
   }
-  .magnific-glass{
+  .magnific-glass {
     height: 30px;
   }
-  
+
   .counter {
     z-index: 1;
     width: 15px;
@@ -189,12 +189,12 @@ body {
 }
 
 .menu-button::before {
-  content: '';
+  content: "";
   margin-top: -8px;
 }
 
 .menu-button::after {
-  content: '';
+  content: "";
   margin-top: 8px;
 }
 

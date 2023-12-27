@@ -1,0 +1,23 @@
+{
+  "boardNotFound": "Проектів не знайдено",
+  "addTask": "Додати завдання",
+  "enterTask": "Введіть завдання",
+  "addColumn": "Додати ще одну колонку",
+  "addList": "Додати список",
+  "showChart": "Показати графік",
+  "closeChart": "Закрити графік",
+  "doneTasks": "Виконані завдання",
+  "showProjectTerm": "Термін проекту",
+  "termOfProject": "Термін проекту",
+  "mustBeCompleted": "Проект повинен бути завершений до: ",
+  "removeColumn": "Видалити цю колонку",
+  "enterText": "Введіть текст",
+  "logOut": "Вийти",
+  "signIn": "Увійти",
+  "signUp": "Зареєструватися",
+  "loginText": "УВІЙТИ",
+  "notRegistered": "Не зареєстровані? ",
+  "createAccount": "Створити обліковий запис",
+  "registerText": "ЗАРЕЄСТРУВАТИСЯ",
+  "alreadyRegistered": "Вже зареєстровані? "
+}

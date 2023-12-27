@@ -1,0 +1,23 @@
+{
+  "boardNotFound": "Board not found",
+  "addTask": "Add task",
+  "enterTask": "Enter task",
+  "addColumn": "Add another column",
+  "addList": "Add list",
+  "showChart": "Show Chart",
+  "closeChart": "Close chart",
+  "doneTasks": "Done tasks",
+  "showProjectTerm": "Show project term",
+  "termOfProject": "Term of project",
+  "mustBeCompleted": "The project must be completed by: ",
+  "removeColumn": "Remove this column",
+  "enterText": "Enter text",
+  "logOut": "Log out",
+  "signIn": "Sign in",
+  "signUp": "Sign up",
+  "loginText": "LOGIN",
+  "notRegistered": "Not registered? ",
+  "createAccount": "Create an account",
+  "registerText": "REGISTER",
+  "alreadyRegistered": "Already registered? "
+}
