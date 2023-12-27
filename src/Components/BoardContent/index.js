@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Container, Draggable } from "react-smooth-dnd";
 import { v4 as uuidv4 } from "uuid";
 import _ from "lodash";
+import { useTranslation } from "react-i18next";
 
 import { applyDrag } from "../../Utilities/DragDrop";
 import { mapOrder } from "../../Utilities/Sorts";
@@ -12,6 +13,14 @@ import Column from "../Column";
 import "./BoardContent.scss";
 
 const BoardContent = () => {
+  const { t } = useTranslation();
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleAddList();
+    }
+  };
+
   const [board, setBoard] = useState({});
   const [columns, setColumns] = useState([]);
 
@@ -67,7 +76,7 @@ const BoardContent = () => {
   };
 
   if (_.isEmpty(board)) {
-    return <>{/* <div className="not-found">Board not found</div> */}</>;
+    return <>{<div className="not-found">{t("boardNotFound")}</div>}</>;
   }
 
   const handleAddList = () => {
@@ -142,7 +151,9 @@ const BoardContent = () => {
               className="add-new-column"
               onClick={() => setIsShowAddList(false)}
             >
-              <i className="fa fa-plus icon"></i>Add another column
+              <i className="fa fa-plus icon"></i>
+              {/* Add another column */}
+              {t("addColumn")}
             </div>
           ) : (
             <div className="content-add-column">
@@ -151,6 +162,7 @@ const BoardContent = () => {
                 className="form-control"
                 ref={inputRef}
                 value={valueInput}
+                onKeyDown={handleKeyPress}
                 onChange={(event) => setValueInput(event.target.value)}
               />
               <div className="group-btn">
@@ -159,7 +171,8 @@ const BoardContent = () => {
                   className="btn btn-success"
                   onClick={() => handleAddList(false)}
                 >
-                  Add list
+                  {/* Add list */}
+                  {t("addList")}
                 </button>
                 <i
                   className="fa fa-times icon"

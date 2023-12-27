@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 import Navbar from "../Navbar";
 
 function SignUp() {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
@@ -22,12 +25,14 @@ function SignUp() {
 
     if (formData.username === "" || formData.username === null) {
       isvalid = false;
-      validationErrors.username = "First name required";
+      // validationErrors.username = "First name required";
+      validationErrors.username = `${t("usernameRequired")}`;
     }
 
     if (formData.password === "" || formData.password === null) {
       isvalid = false;
-      validationErrors.password = "Password name required";
+      // validationErrors.password = "Password required";
+      validationErrors.password = `${t("passworRequired")}`;
     }
 
     setErrors(validationErrors);
@@ -93,9 +98,12 @@ function SignUp() {
               </label>
             </div>
 
-            <button>Register</button>
+            {/* <button>Register</button> */}
+            <button>{t("registerText")}</button>
             <p class="message">
-              Already registered? <a href="/signin">Sign In</a>
+              {/* Already registered? <a href="/signin">Sign In</a> */}
+              {t("alreadyRegistered")}
+              <a href="/signin">{t("signIn")}</a>
             </p>
           </form>
         </div>

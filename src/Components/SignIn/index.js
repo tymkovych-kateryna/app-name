@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 import Navbar from "../Navbar";
 
 import "./SignIn.scss";
 
 function SignIn() {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -27,11 +30,13 @@ function SignIn() {
     let validationErrors = {};
     if (formData.email === "" || formData === null) {
       isvalid = false;
-      validationErrors.username = "Email required";
+      // validationErrors.username = "Email required";
+      validationErrors.username = `${t("emailRequired")}`;
     }
     if (formData.password === "" || formData.password === null) {
       isvalid = false;
-      validationErrors.password = "Password name required";
+      // validationErrors.password = "Password required";
+      validationErrors.password = `${t("passworRequired")}`;
     }
 
     setErrors(validationErrors);
@@ -51,13 +56,14 @@ function SignIn() {
               setIsLoggedIn(false);
 
               isvalid = false;
-              validationErrors.password = "Wrong password";
+              // validationErrors.password = "Wrong password";
+              validationErrors.password = `${t("wrongPassword")}`;
             }
           } else if (formData.email !== "") {
-            console.log("wrong password or email");
+            // console.log("wrong password or email");
 
             isvalid = false;
-            validationErrors.email = "Wrong email or password";
+            validationErrors.email = `${t("wrongEmail")}`;
           }
           setErrors(validationErrors);
           setValid(isvalid);
@@ -119,10 +125,13 @@ function SignIn() {
                 className="button-click"
                 onClick={() => setuser(formData)}
               >
-                login
+                {/* login */}
+                {t("loginText")}
               </button>
               <p className="message">
-                Not registered? <a href="/signup">Create an account</a>
+                {/* Not registered? <a href="/signup">Create an account</a> */}
+                {t("notRegistered")}
+                <a href="/signup">{t("createAccount")}</a>
               </p>
             </form>
           </div>

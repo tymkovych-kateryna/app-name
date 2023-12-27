@@ -1,4 +1,5 @@
 import React from "react";
+import "./i18n";
 
 import BoardContent from "./Components/BoardContent";
 import Navbar from "./Components/Navbar";

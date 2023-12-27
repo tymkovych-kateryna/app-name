@@ -7,10 +7,12 @@
   "showChart": "Show Chart",
   "closeChart": "Close chart",
   "doneTasks": "Done tasks",
+  "dateAlert": "The selected date must be at least today! ",
   "showProjectTerm": "Show project term",
   "termOfProject": "Term of project",
   "mustBeCompleted": "The project must be completed by: ",
   "removeColumn": "Remove this column",
+  "removeColumnConfirmal": "Are you sure you want to remove this column: ",
   "enterText": "Enter text",
   "logOut": "Log out",
   "signIn": "Sign in",
@@ -19,5 +21,10 @@
   "notRegistered": "Not registered? ",
   "createAccount": "Create an account",
   "registerText": "REGISTER",
-  "alreadyRegistered": "Already registered? "
+  "alreadyRegistered": "Already registered? ",
+  "emailRequired": "Email required",
+  "passworRequired": "Password required",
+  "wrongPassword": "Wrong password",
+  "wrongEmail": "Wrong email or password",
+  "usernameRequired": "Username required"
 }

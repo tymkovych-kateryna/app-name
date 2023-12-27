@@ -4,8 +4,9 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 import Calendar from "react-calendar";
 import { v4 as uuidv4 } from "uuid";
+import { useTranslation } from "react-i18next";
 
-import {Chart} from "react-google-charts";
+import { Chart } from "react-google-charts";
 
 import Card from "../Task";
 
@@ -22,6 +23,8 @@ import "react-calendar/dist/Calendar.css";
 import "./Column.scss";
 
 const Column = (props) => {
+  const { t } = useTranslation();
+
   const { column, onCardDrop, onUpdateColumn } = props;
   const cards = mapOrder(column.cards, column.cardOrder, "id");
 
@@ -40,39 +43,42 @@ const Column = (props) => {
   const [completedCount, setCompletedCount] = useState(0);
   const [chartData, setChartData] = useState(null);
   const [showChart, setShowChart] = useState(false);
-//npx json-server --watch db.json --port 8000
+
+  // ! npx json-server --watch db.json --port 8000
   const closeChart = () => {
     setShowChart(false);
     setChartData(null);
   };
   const generateChartData = () => {
-   
     setChartData(data);
     setShowChart(true);
-    
   };
-  const data =[
-    ["Task","From all task"],
-    ["Done",completedCount],
-    ["Undone", cards.length-completedCount]
+  const data = [
+    ["Task", "From all task"],
+    ["Done", completedCount],
+    ["Undone", cards.length - completedCount],
   ];
-  const options={
-    title: "Done tasks",
+  const options = {
+    // title: "Done tasks",
+    title: t("doneTasks"),
     pieHole: 0.4,
     is3D: false,
   };
   const updateCompletedCount = (isChecked) => {
-    setCompletedCount((prevCount) => isChecked ? prevCount + 1 : prevCount - 1);
+    setCompletedCount((prevCount) =>
+      isChecked ? prevCount + 1 : prevCount - 1
+    );
   };
   const handleDateChange = (date) => {
     const today = new Date();
     const selectedDate = date;
 
     if (selectedDate < today) {
-      alert("The selected date must be at least today!");
+      // alert("The selected date must be at least today!");
+      alert(t("dateAlert"));
       return;
     }
-  
+
     setSelectedDate(date);
     setShowCalendar(false);
   };
@@ -175,9 +181,8 @@ const Column = (props) => {
   };
   const generateChart = () => {
     // alert(`Кількість увімкнених чекбоксів: ${completedCount}`);
-    generateChartData();    
+    generateChartData();
     setShowChart(true);
-
   };
   return (
     <>
@@ -206,12 +211,17 @@ const Column = (props) => {
               ></Dropdown.Toggle>
 
               <Dropdown.Menu>
-              <Dropdown.Item onClick={generateChart}>Show chart</Dropdown.Item>          
-                    <Dropdown.Item onClick={openModal}>
-                  Show project term
+                <Dropdown.Item onClick={generateChart}>
+                  {/* Show chart */}
+                  {t("showChart")}
+                </Dropdown.Item>
+                <Dropdown.Item onClick={openModal}>
+                  {/* Show project term */}
+                  {t("showProjectTerm")}
                 </Dropdown.Item>
                 <Dropdown.Item onClick={toggleModal}>
-                  Remove this column
+                  {/* Remove this column */}
+                  {t("removeColumn")}
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
@@ -253,30 +263,32 @@ const Column = (props) => {
               cards.map((card, index) => {
                 return (
                   <Draggable key={card.id}>
-            <Card card={card} onCheckboxChange={updateCompletedCount} />
-        
-          </Draggable>
+                    <Card card={card} onCheckboxChange={updateCompletedCount} />
+                  </Draggable>
                 );
               })}
           </Container>
           {chartData && (
             <>
-            <Chart
-              chartType="PieChart"
-              data={data}
-              options={options}
-              className="chart"
+              <Chart
+                chartType="PieChart"
+                data={data}
+                options={options}
+                className="chart"
               />
-            <button className="chart-btn" onClick={closeChart}>Close chart</button>
-              </>
-          )
-          }
+              <button className="chart-btn" onClick={closeChart}>
+                {/* Close chart */}
+                {t("closeChart")}
+              </button>
+            </>
+          )}
           {isShowAddNewTask === true && (
             <div className="add-new-task">
               <textarea
                 rows="2"
                 className="form-control"
-                placeholder="Enter task"
+                // placeholder="Enter task"
+                placeholder={t("enterTask")}
                 ref={textAreaRef}
                 value={valueTextArea}
                 onChange={(event) => setvalueTextArea(event.target.value)}
@@ -287,7 +299,8 @@ const Column = (props) => {
                   className="btn btn-primary"
                   onClick={() => handleAddNewTask()}
                 >
-                  Add task
+                  {/* Add task */}
+                  {t("addTask")}
                 </button>
                 <i
                   className="fa fa-times icon"
@@ -303,21 +316,27 @@ const Column = (props) => {
               className="footer-action"
               onClick={() => setIsShowAddNewTask(true)}
             >
-              <i className="fa fa-plus icon"></i> Add task
+              <i className="fa fa-plus icon"></i>
+              {/* Add task */}
+              {t("addTask")}
             </div>
           </footer>
         )}
       </div>
       <ConfirmModal
         show={isShowModalDelete}
-        title={"Remove a column"}
-        content={`Are you sure yo remove this column: ${column.title}`}
+        // title={"Remove a column"}
+        title={t("removeColumn")}
+        // content={`Are you sure yo remove this column: ${column.title}`}
+        content={`${t("removeColumnConfirmal")} ${column.title}?`}
         onAction={onModalAction}
       />
       <ConfirmModal
-        title={"Term of project"}
+        // title={"Term of project"}
+        title={t("termOfProject")}
         show={isModalOpen}
-        content={`The project must be completed by:  ${
+        // content={`The project must be completed by:  ${
+        content={`${t("mustBeCompleted")} ${
           selectedDate.getDate().toString().padStart(2, "0") +
           "-" +
           (selectedDate.getMonth() + 1).toString().padStart(2, "0") +
